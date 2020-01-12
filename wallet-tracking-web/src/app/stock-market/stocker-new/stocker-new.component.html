@@ -1,5 +1,5 @@
 <div fxLayout="row wrap">
-  <div fxFlex.gt-sm="100%">
+  <div fxFlex.gt-sm="50%">
     <mat-card>
 
       <mat-card-content>
@@ -16,39 +16,57 @@
             <!-- column -->
             <div fxFlex.gt-sm="100" fxFlex="100">
               <mat-form-field>
-                <input matInput placeholder="EmailId" type="email">
+                <input matInput placeholder="Quantidade" type="number">
               </mat-form-field>
             </div>
             <!-- column -->
             <div fxFlex.gt-sm="100" fxFlex="100">
               <mat-form-field>
-                <input matInput placeholder="Password" type="password">
+                <input matInput placeholder="Preço" type="text">
               </mat-form-field>
             </div>
 
             <!-- column -->
-            <div fxFlex.gt-sm="100" fxFlex="100">
-              <mat-form-field>
-                <mat-select placeholder="Select">
-                  <mat-option value="option">Option</mat-option>
-                  <mat-option value="option">Option2</mat-option>
-                  <mat-option value="option">Option3</mat-option>
-                </mat-select>
-              </mat-form-field>
-            </div>
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker" placeholder="Data da compra">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
 
-            <!-- column -->
             <div fxFlex.gt-sm="100" fxFlex="100">
-              <mat-form-field>
-                <textarea matInput placeholder="Textarea"></textarea>
-              </mat-form-field>
-            </div>
-            <!-- column -->
-            <div fxFlex.gt-sm="100" fxFlex="100">
-              <button mat-raised-button color="primary">Update Profile</button>
+              <button mat-raised-button color="primary">Cadastrar ação</button>
             </div>
           </div>
         </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div fxFlex.gt-sm="50%">
+    <mat-card>
+      <mat-card-content>
+        <mat-card-title>ITAUSA</mat-card-title>
+        <mat-card-subtitle>Different Devices Used to Visit</mat-card-subtitle>
+        <div class="piechart">
+          <x-chartist class="" [data]="donuteChart1.data" [type]="donuteChart1.type" [options]="donuteChart1.options" [responsiveOptions]="donuteChart1.responsiveOptions"
+                      [events]="donuteChart1.events"> </x-chartist>
+        </div>
+      </mat-card-content>
+      <hr>
+      <mat-card-content>
+        <ul class="list-inline text-center">
+          <li>
+            <h6 class="text-success m-0">
+              <i class="mdi mdi-checkbox-blank-circle font-10 m-r-10 "></i>Mobile</h6>
+          </li>
+          <li>
+            <h6 class=" text-info  m-0">
+              <i class="mdi mdi-checkbox-blank-circle font-10 m-r-10"></i>Desktop</h6>
+          </li>
+          <li>
+            <h6 class=" text-purple  m-0">
+              <i class="mdi mdi-checkbox-blank-circle font-10 m-r-10"></i>Tablet</h6>
+          </li>
+        </ul>
       </mat-card-content>
     </mat-card>
   </div>

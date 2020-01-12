@@ -7,6 +7,7 @@ import {DemoMaterialModule} from '../demo-material-module';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {HttpClientModule} from '@angular/common/http';
 import {SharedModule} from '../shared/shared.module';
+import {ChartistModule} from 'ng-chartist';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import {SharedModule} from '../shared/shared.module';
     CommonModule,
     DemoMaterialModule,
     FlexLayoutModule,
+    ChartistModule,
     HttpClientModule,
     SharedModule,
     RouterModule.forChild(StockMarketRouting)
