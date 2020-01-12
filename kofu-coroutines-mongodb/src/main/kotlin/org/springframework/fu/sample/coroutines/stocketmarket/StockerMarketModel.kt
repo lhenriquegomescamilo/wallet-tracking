@@ -17,7 +17,7 @@ data class StockerMarketModel(
 
 data class HistoricoAcao(
     @Id val codigoAcao: String,
-    val datadoDia: Date,
+    val dataCotacao: Date,
     val valorAbertura: Long,
     val valorMaxima: Long,
     val valorMinima: Long,
