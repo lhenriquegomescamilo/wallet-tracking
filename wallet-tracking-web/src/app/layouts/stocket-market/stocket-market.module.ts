@@ -6,9 +6,10 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {ChartsModule} from 'ng2-charts';
 import {ToastrModule} from 'ngx-toastr';
 import { StockerMarketMainComponent } from './stocker-market-main/stocker-market-main.component';
+import { StockerMarketNewComponent } from './stocker-market-new/stocker-market-new.component';
 
 @NgModule({
-  declarations: [StockerMarketMainComponent],
+  declarations: [StockerMarketMainComponent, StockerMarketNewComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(StockerMarketRoutes),
