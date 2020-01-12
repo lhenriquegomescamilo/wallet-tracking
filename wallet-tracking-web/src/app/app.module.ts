@@ -29,8 +29,8 @@ import { SpinnerComponent } from './shared/spinner.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    DemoMaterialModule,
     FormsModule,
+    DemoMaterialModule,
     FlexLayoutModule,
     HttpClientModule,
     SharedModule,
