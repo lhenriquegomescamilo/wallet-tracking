@@ -9,9 +9,11 @@ data class StockerMarketModel(
     @Id val code: String,
     val quantidade: Long,
     val preco: Long,
-    val dataCompra: Date,
+//    val moeda: Moeda,
+    val dataCompra: Date?,
     val historicoAcoes: List<HistoricoAcao> = emptyList()
 )
+
 
 data class HistoricoAcao(
     @Id val codigoAcao: String,

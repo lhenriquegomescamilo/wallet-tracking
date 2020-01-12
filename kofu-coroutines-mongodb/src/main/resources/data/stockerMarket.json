@@ -1,5 +1,7 @@
 [
   {
-    "code": "ITAUSA"
+    "code": "ITAUSA",
+    "quantidade": 2,
+    "preco": 10.10
   }
 ]

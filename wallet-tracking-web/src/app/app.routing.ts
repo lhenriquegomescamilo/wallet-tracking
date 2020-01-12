@@ -1,36 +1,30 @@
-import {NgModule} from '@angular/core';
-import {CommonModule,} from '@angular/common';
-import {BrowserModule} from '@angular/platform-browser';
-import {RouterModule, Routes} from '@angular/router';
+import { Routes } from '@angular/router';
 
-import {AdminLayoutComponent} from './layouts/admin-layout/admin-layout.component';
+import { FullComponent } from './layouts/full/full.component';
 
-const routes: Routes = [
+export const AppRoutes: Routes = [
   {
     path: '',
-    redirectTo: 'stocker-market/main',
-    pathMatch: 'full',
-  }, {
-    path: '',
-    component: AdminLayoutComponent,
+    component: FullComponent,
     children: [
       {
         path: '',
-        loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
-      }]},
-  {
-    path: '**',
-    redirectTo: 'stocker-market/main'
+        redirectTo: '/dashboard',
+        pathMatch: 'full'
+      },
+      {
+        path: '',
+        loadChildren:
+          () => import('./material-component/material.module').then(m => m.MaterialComponentsModule)
+      },
+      {
+        path: 'dashboard',
+        loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
+      },
+      {
+        path: 'stock-market',
+        loadChildren: () => import('./stock-market/stock-market.module').then(m => m.StockMarketModule)
+      }
+    ]
   }
 ];
-
-@NgModule({
-  imports: [
-    CommonModule,
-    BrowserModule,
-    RouterModule.forRoot(routes)
-  ],
-  exports: [
-  ],
-})
-export class AppRoutingModule { }
