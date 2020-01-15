@@ -9,11 +9,11 @@ data class StockMarketModel(
     val quantidade: Long?,
     val preco: Long?,
     val dataCompra: Date?,
-    val historicoAcoes: List<HistoricoAcao> = emptyList()
+    val historicoAcoes: List<HistoryStockarket> = emptyList()
 )
 
 
-data class HistoricoAcao(
+data class HistoryStockarket(
     @Id val codigoAcao: String,
     val dataCotacao: Date,
     val valorAbertura: Long,

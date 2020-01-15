@@ -17,15 +17,19 @@ class StockeMarketRepository(
         .fetch().flow()
 
     suspend fun init() {
+        createTableStockMarket()
+    }
+
+    private suspend fun createTableStockMarket() {
         client.execute("""
-                CREATE TABLE IF NOT EXISTS StockMarket (
-                    id serial PRIMARY KEY, 
-                    codigoAcao varchar, 
-                    quantidade integer, 
-                    preco decimal, 
-                    dataCompra date
-                );
-        """.trimIndent()).await()
+                    CREATE TABLE IF NOT EXISTS StockMarket (
+                        id serial PRIMARY KEY, 
+                        codigoAcao varchar, 
+                        quantidade integer, 
+                        preco decimal, 
+                        dataCompra date
+                    );
+            """.trimIndent()).await()
     }
 
 }
