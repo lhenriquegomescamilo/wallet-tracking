@@ -1,47 +1,40 @@
 package org.springframework.fu.sample.coroutines
 
-import de.flapdoodle.embed.mongo.distribution.Version
 import kotlinx.coroutines.runBlocking
 import org.springframework.boot.context.event.ApplicationReadyEvent
 import org.springframework.fu.kofu.configuration
-import org.springframework.fu.kofu.mongo.reactiveMongodb
-import org.springframework.fu.kofu.webflux.mustache
+import org.springframework.fu.kofu.r2dbc.PostgresqlR2dbcDsl
 import org.springframework.fu.kofu.webflux.webFlux
-import org.springframework.fu.sample.coroutines.stocketmarket.StockerMarketModel
-import org.springframework.fu.sample.coroutines.stocketmarket.StockerMarketRepository
-import org.springframework.fu.sample.coroutines.stocketmarket.StocketMarketHandler
-import org.springframework.fu.sample.coroutines.stocketmarket.stockeMarketRoutes
+import org.springframework.fu.sample.coroutines.stockmarket.StockeMarketRepository
+import org.springframework.fu.sample.coroutines.stockmarket.StocketMarketHandler
+import org.springframework.fu.sample.coroutines.stockmarket.stockeMarketRoutes
 
 val dataConfig = configuration {
 	beans {
-		bean<UserRepository>()
-		bean<StockerMarketRepository>()
+		bean<StockeMarketRepository>()
 	}
 	listener<ApplicationReadyEvent> {
 		runBlocking {
-			ref<UserRepository>().init()
-			ref<StockerMarketRepository>().init()
+			ref<StockeMarketRepository>().init()
 		}
 	}
-	reactiveMongodb {
-		embedded {
-			version = Version.Main.PRODUCTION
-		}
+	PostgresqlR2dbcDsl {
+		password = "postgres"
+		username = "postgres"
+		host = "localhost"
+		port = 5432
+
 	}
 }
 
 val webConfig = configuration {
-	beans {
-		bean<UserHandler>()
-		bean(::routes)
-	}
-	beans {
+
+beans {
 		bean<StocketMarketHandler>()
 		bean(::stockeMarketRoutes)
 	}
 	webFlux {
 		port = if (profiles.contains("test")) 8181 else 8080
-		mustache()
 		codecs {
 			string()
 			jackson()

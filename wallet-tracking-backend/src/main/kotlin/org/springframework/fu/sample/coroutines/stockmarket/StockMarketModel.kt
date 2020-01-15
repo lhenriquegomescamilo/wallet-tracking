@@ -1,15 +1,13 @@
-package org.springframework.fu.sample.coroutines.stocketmarket
+package org.springframework.fu.sample.coroutines.stockmarket
 
 import org.springframework.data.annotation.Id
-import org.springframework.data.mongodb.core.mapping.Document
 import java.util.*
 
-@Document
-data class StockerMarketModel(
-    @Id val code: String,
-    val quantidade: Long,
-    val preco: Long,
-//    val moeda: Moeda,
+data class StockMarketModel(
+    val id: Long? = null,
+    val codigoAcao: String?,
+    val quantidade: Long?,
+    val preco: Long?,
     val dataCompra: Date?,
     val historicoAcoes: List<HistoricoAcao> = emptyList()
 )

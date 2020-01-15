@@ -1,4 +1,4 @@
-package org.springframework.fu.sample.coroutines.stocketmarket
+package org.springframework.fu.sample.coroutines.stockmarket
 
 import org.springframework.web.reactive.function.server.coRouter
 
