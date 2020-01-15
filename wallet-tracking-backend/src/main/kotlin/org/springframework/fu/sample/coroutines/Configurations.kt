@@ -3,7 +3,7 @@ package org.springframework.fu.sample.coroutines
 import kotlinx.coroutines.runBlocking
 import org.springframework.boot.context.event.ApplicationReadyEvent
 import org.springframework.fu.kofu.configuration
-import org.springframework.fu.kofu.r2dbc.PostgresqlR2dbcDsl
+import org.springframework.fu.kofu.r2dbc.r2dbcPostgresql
 import org.springframework.fu.kofu.webflux.webFlux
 import org.springframework.fu.sample.coroutines.stockmarket.StockeMarketRepository
 import org.springframework.fu.sample.coroutines.stockmarket.StocketMarketHandler
@@ -18,7 +18,7 @@ val dataConfig = configuration {
 			ref<StockeMarketRepository>().init()
 		}
 	}
-	PostgresqlR2dbcDsl {
+	r2dbcPostgresql() {
 		password = "postgres"
 		username = "postgres"
 		host = "localhost"
