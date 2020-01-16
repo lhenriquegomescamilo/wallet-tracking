@@ -5,30 +5,31 @@
       <mat-card-content>
         <mat-card-title>Cadastro de Ações</mat-card-title>
         <mat-card-subtitle>Aqui você pode cadastrar suas ações</mat-card-subtitle>
-        <form class="basic-form">
+        <form class="basic-form" [formGroup]="stockMarketGroup">
           <div fxLayout="row wrap">
             <!-- column -->
             <div fxFlex.gt-sm="100" fxFlex="100">
               <mat-form-field>
-                <input matInput placeholder="Código da ação">
+                <input matInput placeholder="Código da ação" formControlName="codigoAcao">
               </mat-form-field>
             </div>
             <!-- column -->
             <div fxFlex.gt-sm="100" fxFlex="100">
               <mat-form-field>
-                <input matInput placeholder="Quantidade" type="number">
+                <input matInput placeholder="Quantidade" type="number" formControlName="quantidade">
               </mat-form-field>
             </div>
             <!-- column -->
             <div fxFlex.gt-sm="100" fxFlex="100">
               <mat-form-field>
-                <input matInput placeholder="Preço" type="text">
+                <span matPrefix>R$ &nbsp;</span>
+                <input matInput placeholder="Preço" type="text" formControlName="preco" mask="separator.2" thousandSeparator=",">
               </mat-form-field>
             </div>
 
             <!-- column -->
             <mat-form-field>
-              <input matInput [matDatepicker]="picker" placeholder="Data da compra">
+              <input matInput [matDatepicker]="picker" placeholder="Data da compra" formControlName="dataCompra">
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>

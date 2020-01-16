@@ -1,9 +1,11 @@
 export interface StockMarketModel {
-  code: string;
+  id: number;
+  codigoAcao: string;
   quantidade: number;
   preco: number;
   dataCompra: Date;
-  historicoAcoes?: HistoricoAcaoModel[]
+  historicoAcoes
+    ?: HistoricoAcaoModel[]
 }
 
 export interface HistoricoAcaoModel {

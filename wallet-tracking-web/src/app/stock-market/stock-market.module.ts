@@ -8,6 +8,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {HttpClientModule} from '@angular/common/http';
 import {SharedModule} from '../shared/shared.module';
 import {ChartistModule} from 'ng-chartist';
+import {ReactiveFormsModule} from '@angular/forms';
+import {NgxMaskModule} from 'ngx-mask';
 
 
 @NgModule({
@@ -19,6 +21,10 @@ import {ChartistModule} from 'ng-chartist';
     ChartistModule,
     HttpClientModule,
     SharedModule,
+    ReactiveFormsModule,
+    NgxMaskModule.forRoot({
+      validation: true,
+    }),
     RouterModule.forChild(StockMarketRouting)
   ]
 })
