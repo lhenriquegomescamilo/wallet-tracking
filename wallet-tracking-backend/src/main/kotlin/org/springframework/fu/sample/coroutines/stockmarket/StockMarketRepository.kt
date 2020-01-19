@@ -2,18 +2,20 @@ package org.springframework.fu.sample.coroutines.stockmarket
 
 import org.springframework.data.r2dbc.core.*
 
-class StockeMarketRepository(
+class StockMarketRepository(
     private val client: DatabaseClient
 ) {
-    suspend fun create(stockMarketModel: StockMarketModel) = client.insert()
-        .into<StockMarketModel>()
-        .table("StockMarket")
-        .using(stockMarketModel)
-        .await()
+    suspend fun create(stockMarket: StockMarket) {
+        return client.insert()
+            .into<StockMarket>()
+            .table("StockMarket")
+            .using(stockMarket)
+            .await()
+    }
 
     fun findAll() = client.select()
         .from("StockMarket")
-        .asType<StockMarketModel>()
+        .asType<StockMarket>()
         .fetch().flow()
 
     suspend fun init() {

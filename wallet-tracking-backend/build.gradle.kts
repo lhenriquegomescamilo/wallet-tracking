@@ -18,7 +18,10 @@ dependencies {
 	implementation("de.flapdoodle.embed:de.flapdoodle.embed.mongo")
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
+	implementation("org.springframework.security.dsl:spring-security-kotlin-dsl:0.0.1.BUILD-SNAPSHOT")
 
+	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("org.springframework.boot:spring-boot-starter-security")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 

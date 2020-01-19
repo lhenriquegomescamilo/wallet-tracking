@@ -17,6 +17,7 @@ import { DemoMaterialModule } from './demo-material-module';
 
 import { SharedModule } from './shared/shared.module';
 import { SpinnerComponent } from './shared/spinner.component';
+import {MAT_DATE_LOCALE} from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { SpinnerComponent } from './shared/spinner.component';
     {
       provide: LocationStrategy,
       useClass: PathLocationStrategy
-    }
+    },
+    {provide: MAT_DATE_LOCALE, useValue: 'pt-Br'}
   ],
   bootstrap: [AppComponent]
 })

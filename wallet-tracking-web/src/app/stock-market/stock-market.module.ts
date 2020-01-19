@@ -23,7 +23,7 @@ import {NgxMaskModule} from 'ngx-mask';
     SharedModule,
     ReactiveFormsModule,
     NgxMaskModule.forRoot({
-      validation: true,
+      validation: false,
     }),
     RouterModule.forChild(StockMarketRouting)
   ]

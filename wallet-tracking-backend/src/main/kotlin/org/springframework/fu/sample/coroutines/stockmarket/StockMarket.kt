@@ -1,15 +1,16 @@
 package org.springframework.fu.sample.coroutines.stockmarket
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import org.springframework.data.annotation.Id
 import java.util.*
 
-data class StockMarketModel(
-    val id: Long? = null,
-    val codigoAcao: String?,
-    val quantidade: Long?,
-    val preco: Long?,
-    val dataCompra: Date?,
-    val historicoAcoes: List<HistoryStockarket> = emptyList()
+@JsonIgnoreProperties(ignoreUnknown = true)
+data class StockMarket(
+    var id: Long? = null,
+    val codigo: String? = null,
+    val quantidade: Long? = null,
+    val preco: Long? = null,
+    val compra: Date? = null
 )
 
 
