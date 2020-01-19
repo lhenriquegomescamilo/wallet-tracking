@@ -4,7 +4,6 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import org.springframework.http.MediaType
 import org.springframework.web.reactive.function.server.*
-import org.springframework.web.reactive.function.server.ServerResponse.badRequest
 import org.springframework.web.reactive.function.server.ServerResponse.ok
 
 
@@ -13,15 +12,8 @@ class StocketMarketHandler(
 ) {
 
     suspend fun create(request: ServerRequest): ServerResponse {
-
-        return try {
-            val stockMarketModel = request.awaitBody<StockMarket>()
-            ok().bodyValueAndAwait(repository.create(stockMarketModel))
-        } catch (e: Exception) {
-            println(e)
-            badRequest().bodyAndAwait(fake())
-        }
-
+        val stockMarketModel = request.awaitBody<StockMarket>()
+        return ok().bodyValueAndAwait(repository.create(stockMarketModel))
     }
 
     private fun fake(): Flow<String> = flow {

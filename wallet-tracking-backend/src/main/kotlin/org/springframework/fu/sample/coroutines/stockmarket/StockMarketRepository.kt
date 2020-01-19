@@ -26,10 +26,10 @@ class StockMarketRepository(
         client.execute("""
                     CREATE TABLE IF NOT EXISTS StockMarket (
                         id serial PRIMARY KEY, 
-                        codigoAcao varchar, 
+                        codigo varchar, 
                         quantidade integer, 
                         preco decimal, 
-                        dataCompra date
+                        compra date
                     );
             """.trimIndent()).await()
     }
