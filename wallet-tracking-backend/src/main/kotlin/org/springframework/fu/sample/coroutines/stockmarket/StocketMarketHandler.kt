@@ -1,7 +1,5 @@
 package org.springframework.fu.sample.coroutines.stockmarket
 
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 import org.springframework.http.MediaType
 import org.springframework.web.reactive.function.server.*
 import org.springframework.web.reactive.function.server.ServerResponse.ok
@@ -16,9 +14,6 @@ class StocketMarketHandler(
         return ok().bodyValueAndAwait(repository.create(stockMarketModel))
     }
 
-    private fun fake(): Flow<String> = flow {
-        emit("Deu ruim")
-    }
 
     @Suppress("UNUSED_PARAMETER")
     suspend fun findAll(request: ServerRequest): ServerResponse {
