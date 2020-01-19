@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {StockMarketService} from '../services/stock-market.service';
 import {FormBuilder, Validators} from '@angular/forms';
 import {StockMarketModel} from '../../models/stock-market.model';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 declare var require: any;
 
@@ -23,7 +24,8 @@ export class StockerNewComponent implements OnInit {
 
   constructor(
     private stockerMarketService: StockMarketService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private _snackBar: MatSnackBar
   ) {
   }
 
@@ -36,7 +38,11 @@ export class StockerNewComponent implements OnInit {
     const stockMarket = this.stockMarketFormGroup.value as StockMarketModel;
     stockMarket.preco = Number(stockMarket.preco);
     this.stockerMarketService.create(stockMarket)
-      .subscribe((data) => console.log(data), error => console.error(error))
+      .subscribe(_ => this.onSucess(), error => console.error(error))
   }
 
+  private onSucess() {
+    this._snackBar.open('Ação criado com sucesso', 'Fechar', {duration: 2500});
+    this.stockMarketFormGroup.reset();
+  }
 }
