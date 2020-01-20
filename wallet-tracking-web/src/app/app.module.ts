@@ -18,6 +18,8 @@ import { DemoMaterialModule } from './demo-material-module';
 import { SharedModule } from './shared/shared.module';
 import { SpinnerComponent } from './shared/spinner.component';
 import {MAT_DATE_LOCALE} from '@angular/material/core';
+import { MenuListItemComponent } from './layouts/full/menu-list-item/menu-list-item.component';
+import {MenuItemsService} from './shared/menu-items/menu-items.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import {MAT_DATE_LOCALE} from '@angular/material/core';
     FullComponent,
     AppHeaderComponent,
     SpinnerComponent,
-    AppSidebarComponent
+    AppSidebarComponent,
+    MenuListItemComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,8 @@ import {MAT_DATE_LOCALE} from '@angular/material/core';
       provide: LocationStrategy,
       useClass: PathLocationStrategy
     },
-    {provide: MAT_DATE_LOCALE, useValue: 'pt-Br'}
+    {provide: MAT_DATE_LOCALE, useValue: 'pt-Br'},
+    MenuItemsService
   ],
   bootstrap: [AppComponent]
 })

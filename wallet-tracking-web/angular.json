@@ -22,7 +22,7 @@
             ],
             "styles": [
               "node_modules/chartist/dist/chartist.css",
-              "src/styles.css",
+              "src/styles.scss",
               "src/assets/styles/style.scss"
             ],
             "scripts": []
@@ -75,7 +75,7 @@
               "node_modules/jquery/dist/jquery.min.js"
             ],
             "styles": [
-              "src/styles.css",
+              "src/styles.scss",
               "src/assets/styles/style.scss"
             ],
             "assets": [

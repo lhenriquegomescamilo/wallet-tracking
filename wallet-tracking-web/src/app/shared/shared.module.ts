@@ -1,8 +1,5 @@
-import { NgModule } from '@angular/core';
-
-import { MenuItems } from './menu-items/menu-items';
-import { AccordionAnchorDirective, AccordionLinkDirective, AccordionDirective } from './accordion';
-import {IConfig, NgxMaskModule} from 'ngx-mask';
+import {NgModule} from '@angular/core';
+import {AccordionAnchorDirective, AccordionDirective, AccordionLinkDirective} from './accordion';
 
 // export const options: Partial<IConfig> | (() => Partial<IConfig>);
 
@@ -15,8 +12,9 @@ import {IConfig, NgxMaskModule} from 'ngx-mask';
   exports: [
     AccordionAnchorDirective,
     AccordionLinkDirective,
-    AccordionDirective
-   ],
-  providers: [ MenuItems ]
+    AccordionDirective,
+
+  ],
+  providers: []
 })
 export class SharedModule { }
