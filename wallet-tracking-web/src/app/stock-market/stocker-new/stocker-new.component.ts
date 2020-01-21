@@ -16,6 +16,7 @@ const data: any = require('../../dashboard/data.json');
 export class StockerNewComponent implements OnInit {
 
   isShow = false;
+  isNotBlockSubmit = false;
 
   stockMarketFormGroup = this.formBuilder.group({
     codigo: ['', [Validators.required]],
@@ -33,11 +34,15 @@ export class StockerNewComponent implements OnInit {
 
 
   ngOnInit() {
+    this.stockMarketFormGroup.valueChanges.subscribe(() => {
+        this.isNotBlockSubmit = this.stockMarketFormGroup.valid
+    })
   }
 
 
   onSubmit(): void {
     this.isShow = true;
+    this.isNotBlockSubmit = false;
     const stockMarket = this.stockMarketFormGroup.value as StockMarketModel;
     stockMarket.preco = Number(stockMarket.preco);
     this.stockerMarketService.create(stockMarket)

@@ -44,7 +44,7 @@
               <button
                 mat-raised-button
                 (click)="onSubmit()"
-                color="primary" [disabled]="stockMarketFormGroup.invalid">Cadastrar ação
+                color="primary" [disabled]="stockMarketFormGroup.invalid && !isNotBlockSubmit">Cadastrar ação
               </button>
             </div>
           </div>
