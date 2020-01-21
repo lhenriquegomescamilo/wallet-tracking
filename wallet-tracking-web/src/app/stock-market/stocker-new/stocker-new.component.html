@@ -1,7 +1,8 @@
 <div fxLayout="row wrap">
   <div fxFlex.gt-sm="50%">
-    <mat-card>
 
+    <mat-card>
+      <mat-progress-bar mode="indeterminate" *ngIf="isShow"></mat-progress-bar>
       <mat-card-content>
         <mat-card-title>Cadastro de Ações</mat-card-title>
         <mat-card-subtitle>Aqui você pode cadastrar suas ações</mat-card-subtitle>

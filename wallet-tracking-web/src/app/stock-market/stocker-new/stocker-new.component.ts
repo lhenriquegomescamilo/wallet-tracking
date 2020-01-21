@@ -15,6 +15,8 @@ const data: any = require('../../dashboard/data.json');
 })
 export class StockerNewComponent implements OnInit {
 
+  isShow = false;
+
   stockMarketFormGroup = this.formBuilder.group({
     codigo: ['', [Validators.required]],
     quantidade: [null, [Validators.required]],
@@ -35,13 +37,18 @@ export class StockerNewComponent implements OnInit {
 
 
   onSubmit(): void {
+    this.isShow = true;
     const stockMarket = this.stockMarketFormGroup.value as StockMarketModel;
     stockMarket.preco = Number(stockMarket.preco);
     this.stockerMarketService.create(stockMarket)
-      .subscribe(_ => this.onSucess(), error => console.error(error))
+      .subscribe(_ => this.onSucess(), error => {
+        this.isShow = false;
+        console.error(error)
+      })
   }
 
   private onSucess() {
+    this.isShow = false;
     this._snackBar.open('Ação criado com sucesso', 'Fechar', {duration: 2500});
     this.stockMarketFormGroup.reset();
   }

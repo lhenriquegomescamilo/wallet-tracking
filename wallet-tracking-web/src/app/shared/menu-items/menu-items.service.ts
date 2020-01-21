@@ -6,6 +6,11 @@ import {Event, NavigationEnd, Router} from '@angular/router';
 
 const MENUITEMS = [
   {
+    displayName: 'Dasboard',
+    iconName: 'speaker_notes',
+    route: 'dashboard',
+  },
+  {
     displayName: 'Ações',
     iconName: 'recent_actors',
     route: 'devfestfl',
@@ -59,7 +64,7 @@ const MENUITEMS = [
         // ]
       },
       {
-        displayName: 'Sessions',
+        displayName: 'Dasboard',
         iconName: 'speaker_notes',
         route: 'devfestfl/sessions',
         // children: [
