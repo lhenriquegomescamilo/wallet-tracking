@@ -64,9 +64,9 @@ const MENUITEMS = [
         // ]
       },
       {
-        displayName: 'Dasboard',
+        displayName: 'Listar Ações',
         iconName: 'speaker_notes',
-        route: 'devfestfl/sessions',
+        route: 'stock-market/list',
         // children: [
         //   {
         //     displayName: 'Create Enterprise UIs',

@@ -10,10 +10,11 @@ import {SharedModule} from '../shared/shared.module';
 import {ChartistModule} from 'ng-chartist';
 import {ReactiveFormsModule} from '@angular/forms';
 import {NgxMaskModule} from 'ngx-mask';
+import { StockListComponent } from './stock-list/stock-list.component';
 
 
 @NgModule({
-  declarations: [StockerNewComponent],
+  declarations: [StockerNewComponent, StockListComponent],
   imports: [
     CommonModule,
     DemoMaterialModule,

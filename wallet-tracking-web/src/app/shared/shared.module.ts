@@ -7,7 +7,7 @@ import {AccordionAnchorDirective, AccordionDirective, AccordionLinkDirective} fr
   declarations: [
     AccordionAnchorDirective,
     AccordionLinkDirective,
-    AccordionDirective
+    AccordionDirective,
   ],
   exports: [
     AccordionAnchorDirective,
