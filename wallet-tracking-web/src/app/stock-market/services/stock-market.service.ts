@@ -15,6 +15,10 @@ export class StockMarketService {
   }
 
   create(stockMarket: StockMarketModel): Observable<any> {
-    return this.httpClient.post(`${environment.baseUrl}/api/stocketMarket`, stockMarket)
+    return this.httpClient.post(`${environment.baseUrl}/api/stockMarket`, stockMarket)
+  }
+
+  findAll(): Observable<StockMarketModel[]> {
+    return this.httpClient.get(`${environment.baseUrl}/api/stockMarket`) as Observable<StockMarketModel[]>
   }
 }

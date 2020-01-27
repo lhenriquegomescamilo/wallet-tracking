@@ -43,7 +43,7 @@ beans {
 			jackson()
 		}
 		cors {
-			"/api/stocketMarket/**" {
+			"/api/stockMarket/**" {
 				allowedMethods = listOf("GET", "PUT", "OPTIONS", "POST", "PATCH")
 				allowedOrigins = listOf("*")
 			}
